@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<style>
+    #headings{
+        text-align: center;
+        color:black;
+        font-size: 30px;
+        font-family: sans-serif;
+        background-color: lightpink;
+        padding: 10px;
+        border-radius: 50px;
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-bottom: 5%;
+    }
+    html{
+         background-color:tomato;
+    }
+    
+    </style>
+<html lang="en"></html>
+<head>
+  <title>ADMIN</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+ </head>
+ <body>
+        <h1 id = headings>WELCOME TO THE ADMIN PAGE</h1>
+    
+        <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+    
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Time of Creation</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for user in data %}
+              <tr>
+                <td>{{user.email}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.time}}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    
+
+        </body>
+</html>
