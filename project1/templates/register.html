@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<style>
+  #headings{
+    text-align: center;
+    color:black;
+    font-size: 30px;
+    font-family: sans-serif;
+    background-color:lightpink;
+    padding: 10px;
+    border-radius: 50px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 5%;
+}
+header{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+html{
+    background-color:tomato;
+}
+.btn-secondary{
+    margin-left: 5%;
+}
+.input-group{
+    margin-left:5%;
+}
+.form-control{
+    margin-right: 60%;
+}
+.input-group-text{
+    font-family: sans-serif;
+    color: black;
+}
+@media(max-width: 1000px){
+
+    .form-control{
+        margin-right: 20%;
+        margin-left : 5%
+    }
+    
+}
+h1{
+    text-align: center;
+    color:black;
+    font-size: 30px;
+    font-family: sans-serif;
+
+}
+</style>
+<html>
+    <header>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <head>
+            <title>REGISTRATION</title>
+        </head>
+        {% if name %}
+              <h2>Hello {{name}}, please login </h2>
+            {% endif %}
+        <body>
+            <h1 id=headings>ARE U NEW FOR APP</h1>
+            <h1>GET REGISTER FOR NEW UPDATES</h1>
+            <h1 id=headings>Registration form</h1>
+
+            <form action="{{url_for('register')}}" method="POST">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">email</span>
+                  </div>
+                  <input type="email" class="form-control" name="name" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+    
+              <br>
+    
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">password</span>
+                  </div>
+                  <input type="password" class="form-control" name="pwd" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" pattern=".{8,}" title="Eight or more characters">
+                </div>
+                <br>
+              <button type="submit" class="btn btn-secondary btn-lg">submit</button>
+              <button type="submit" class="btn btn-secondary btn-lg" formaction="/auth">Login</button>
+            </form>
+            </body>
+        </header>
+    </html>
