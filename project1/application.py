@@ -43,26 +43,23 @@ def login():
 @app.route("/admin")
 def admin():
     users=User.query.all()
+    users = User.query.order_by(User.time.desc()).all()
 
     return render_template ("admin.html",data=users)
 @app.route("/auth", methods=["GET","POST"])
 def auth():
     if request.method=="POST":
-        mail = request.form.get("name") # i will get my email entered in the webpage
+        mail = request.form.get("name")
         passw = request.form.get("pwd")
         u = User.query.get(mail)
-        #select * from user where email==mail  ===> email,password,timestamp
         if u != None:
-            # print (u)
-            # print (u.password)
-            # print (passw,"====> entered password")
 
             if passw == u.password :
-            #     print ("your mail id is found")
                 session["email"]=mail
                 return render_template("account.html")
             else:
-                return "invalid password"
+                message="invalid password"
+                return render_template("error.html",message=message)
         else:
             return "No account associated with this password"
 
